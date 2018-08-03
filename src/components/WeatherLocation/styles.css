@@ -4,6 +4,7 @@
     padding: 15px;
     font-family: 'Roboto', sans-serif;
     box-shadow: 10px 10px 42px -12px rgba(0,0,0,0.75);
+    background:  rgba(0,100,0,0.1);
 }
 .locationCont{
     width: 100%;
