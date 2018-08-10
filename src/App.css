@@ -1,6 +1,3 @@
-.App {
-  text-align: center;
-}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -29,9 +26,18 @@
 
 .detail {
   background: #999;
-  height: 100vh;
-  width: 100%;
+  height: 85vh;
+  width: calc(100% - 40px);
+  overflow: auto;
+  padding-right: 20px;
+  padding-left: 20px;
 }
+@media ( max-width: 48em ) {
+  .detail {
+    height: 40vh;
+  }
+}
+
 
 .container-fluid {
   padding: 0;
