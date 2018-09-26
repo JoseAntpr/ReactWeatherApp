@@ -11,6 +11,8 @@ import './App.css';
 import LocationList from './components/LocationList/index';
 import ForecastExtended from './components/ForecastExtended/index';
 
+import { setCity } from './actions';
+
 const cities = [
   'Malaga,es',
   'Buenos Aires,ar',
@@ -19,8 +21,6 @@ const cities = [
 
 const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-// Action Creator 
-const setCity = ( value ) => ({type: 'setCity', value});
 
 class App extends Component {
 
