@@ -11,7 +11,7 @@ import LocationList from './components/LocationList/index';
 import ForecastExtended from './components/ForecastExtended/index';
 
 // Redux
-import  { store } from './store';
+import { connect } from 'react-redux';
 import { setCity } from './actions';
 
 const cities = [
@@ -30,7 +30,7 @@ class App extends Component {
   handleSelectedLocation = city => {
     this.setState({city: city});
 
-    store.dispatch(setCity(city));
+   this.props.setCity(city);
   }
   render() {
     return (
@@ -74,4 +74,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = ( dispatch) => ({
+  setCity: value => dispatch(setCity(value))
+});
+
+const AppConnected = connect(null, mapDispatchToProps)(App);
+
+export default AppConnected;
