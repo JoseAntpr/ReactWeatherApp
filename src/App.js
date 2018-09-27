@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,12 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import './App.css';
-import LocationList from './components/LocationList/index';
+import LocationListContainer, {} from './containers/LocationListContainer';
 import ForecastExtended from './components/ForecastExtended/index';
-
-// Redux
-import { connect } from 'react-redux';
-import { setCity } from './actions';
 
 const cities = [
   'Malaga,es',
@@ -26,12 +21,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = { city: null };
-  }
-
-  handleSelectedLocation = city => {
-    this.setState({city: city});
-
-   this.props.setCity(city);
   }
   render() {
     return (
@@ -53,8 +42,7 @@ class App extends Component {
           </Row>
           <Row>
             <Col xs={12} sm={12} md={6}>
-              <LocationList cities={cities} 
-                  onSelectedLocation={this.handleSelectedLocation}/>
+              <LocationListContainer cities={cities}/>
             </Col>
             <Col xs={12} sm={12} md={6} >
               <Paper elevation={4}>
@@ -75,12 +63,4 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  setCity: PropTypes.func.isRequired
-}
-
-const mapDispatchToProps = ( dispatch ) => ({
-  setCity: value => dispatch(setCity(value))
-});
-
-export default AppConnected = connect(null, mapDispatchToProps)(App);
+export default App;
